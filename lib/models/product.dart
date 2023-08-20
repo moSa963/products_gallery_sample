@@ -1,4 +1,5 @@
 import 'package:task/models/product_Image.dart';
+import 'package:task/models/Type.dart';
 
 class Product {
   int id;
@@ -9,10 +10,10 @@ class Product {
   List<ProductImage> images;
 
   Product(
-      {required this.id,
-      required this.name,
-      required this.shop,
-      required this.price,
+      {this.id=0,
+      this.name="",
+      this.shop="",
+      this.price=0,
       required this.images,
       required this.type});
 }
