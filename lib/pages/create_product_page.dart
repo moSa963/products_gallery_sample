@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:task/constants/types.dart';
 import 'package:task/models/product.dart';
+import 'package:task/providers/products_provider.dart';
 import 'package:task/widgets/image_picker/image_picker.dart';
 import 'package:task/widgets/styled_drop_down.dart';
 import 'package:task/widgets/styled_elevated_button.dart';
@@ -104,7 +106,7 @@ class _CreateProductPageState extends State<CreateProductPage> {
   }
 
   void _handleAdd() async {
-    //TODO
+    await context.read<ProductsProvider>().add(product, images);
     _back();
   }
 }
