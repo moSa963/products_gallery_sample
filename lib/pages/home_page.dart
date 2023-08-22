@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task/pages/create_product_page.dart';
 import 'package:task/widgets/styled_icon_button.dart';
+import 'package:task/widgets/types_selector/types_selector.dart';
+import 'package:task/constants/types.dart';
+import 'package:task/models/type.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Type _type = types[0];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +30,11 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: ListView(
-        children: [],
+        children: [
+          TypesSelector(value: _type, onChange: (type) => setState(() {
+            _type = type;
+          }),),
+        ],
       ),
     );
   }
