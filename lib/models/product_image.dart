@@ -1,5 +1,11 @@
 class ProductImage {
-  String name;
+  final String data;
 
-  ProductImage({required this.name});
+  ProductImage({required this.data});
+
+  factory ProductImage.fromMap(Map<String, Object?> map) {
+    return ProductImage(
+      data: map["data"] as String,
+    );
+  }
 }
