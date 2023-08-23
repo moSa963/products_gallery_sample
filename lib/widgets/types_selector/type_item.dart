@@ -15,7 +15,7 @@ class TypeItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: AspectRatio(
-            aspectRatio: 1,
+            aspectRatio: 0.9,
             child: Container(
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
@@ -28,7 +28,7 @@ class TypeItem extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AspectRatio(
-                      aspectRatio: 1.2,
+                      aspectRatio: 1.1,
                       child: Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: const BoxDecoration(
