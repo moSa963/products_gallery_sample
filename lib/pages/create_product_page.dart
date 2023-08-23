@@ -21,7 +21,7 @@ class CreateProductPage extends StatefulWidget {
 
 class _CreateProductPageState extends State<CreateProductPage> {
   final List<File> images = [];
-  final Product product = Product(images: [], type: types.first);
+  final Product product = Product(images: [], type: types.last);
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +77,11 @@ class _CreateProductPageState extends State<CreateProductPage> {
               StyledDropdown(
                 items: [
                   for (final type in types)
-                    DropdownMenuItem(
-                      value: type.id,
-                      child: Text(type.name),
-                    )
+                    if (type.id != 0)
+                      DropdownMenuItem(
+                        value: type.id,
+                        child: Text(type.name),
+                      )
                 ],
                 value: product.type.id,
                 onChanged: (value) {
@@ -93,7 +94,7 @@ class _CreateProductPageState extends State<CreateProductPage> {
                 height: 25,
               ),
               StyledElevatedButton(
-                onPressed: _handleAdd,
+                onPressed: images.isNotEmpty ? _handleAdd : null,
                 child: const Text("اضف منتج"),
               )
             ],
